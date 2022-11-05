@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Booleans
     private bool groundTouch;
-    private bool hasDashed;
+    public bool hasDashed;
     public bool isDashing = false;
 
     //animation
