@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     //animation
     [SerializeField] animateSprite aS;
 
+    //Sound
+    [SerializeField] AudioManager aM;
+
     private BoxCollider2D collider;
     [SerializeField] private PhysicsMaterial2D bouncy;
     private PhysicsMaterial2D defaultPhysicsMaterial;
@@ -93,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        aM.Play("Jump");
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.velocity += Vector2.up * jumpForce;
     }
@@ -107,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Dash(Vector2 dir)
     {
+        aM.Play("Dash");
         hasDashed = true;
         rb.velocity = new Vector2(0, 0);
         Vector2 correctedDirection = Ratchet(dir);
